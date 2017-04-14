@@ -5,5 +5,5 @@ generateIntegerValueOf: msgNode on: aStream indent: level
 	aStream nextPut: $(.
 	self emitCExpression: msgNode args first on: aStream.
 	aStream nextPutAll: ' >> ';
-		print: vmClass objectMemoryClass numSmallIntegerTagBits;
+		print: vmClass class numSmallIntegerTagBits;
 		nextPut: $).

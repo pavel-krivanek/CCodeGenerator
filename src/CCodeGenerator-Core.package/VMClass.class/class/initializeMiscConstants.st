@@ -9,23 +9,9 @@ initializeMiscConstants
 
 	initializationOptions ifNil: [self initializationOptions: Dictionary new].
 	omc := initializationOptions at: #ObjectMemory ifAbsent: nil.
-	(omc isNil and: [self defaultObjectMemoryClass notNil]) ifTrue:
-		[omc := initializationOptions at: #ObjectMemory put: self defaultObjectMemoryClass name].
-	initializationOptions
-		at: #SqueakV3ObjectMemory	"the good ole default"
-			ifAbsentPut: (omc
-					ifNil: [true]
-					ifNotNil: [(Smalltalk at: omc) includesBehavior: ObjectMemory]);
-		at: #SpurObjectMemory		"the new contender"
-			ifAbsentPut: (omc
-					ifNil: [false]
-					ifNotNil: [(Smalltalk at: omc) includesBehavior: SpurMemoryManager]).
 
 	"Use ifAbsentPut: so that they will get copied back to the
 	 VMMaker's options and dead code will likely be eliminated."
-	PharoVM := initializationOptions at: #PharoVM ifAbsentPut: [false].
-	NewspeakVM := initializationOptions at: #NewspeakVM ifAbsentPut: [false].
-	SistaVM := initializationOptions at: #SistaVM ifAbsentPut: [false].
 	"But not these; they're compile-time"
 	MULTIPLEBYTECODESETS := initializationOptions at: #MULTIPLEBYTECODESETS ifAbsent: [false].
 	IMMUTABILITY := initializationOptions at: #IMMUTABILITY ifAbsent: [false].

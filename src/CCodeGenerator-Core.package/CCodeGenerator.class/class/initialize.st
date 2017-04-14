@@ -1,4 +1,4 @@
-class initialization
+as yet unclassified
 initialize
 	"CCodeGenerator initialize"
 

@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core-C translation
 asTranslatorNodeIn: aTMethod
 	"make a CCodeGenerator equivalent of me"
 	"selector is sometimes a Symbol, sometimes a SelectorNode!

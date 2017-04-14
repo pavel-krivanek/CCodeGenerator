@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core-C translation
 isAssignmentEqualsEqualsNil
 	"Answer if the receiver if of the form (v := e) == nil, which underlies e ifNotNil: [:v|...]"
 	^#== == (selector isSymbol ifTrue: [selector] ifFalse: [selector key])

@@ -3,10 +3,11 @@ emitCFunctionPrototype: aStream generator: aCodeGen isPrototype: isPrototype "<B
 	"Emit a C function header for this method onto the given stream.
 	 Answer if the method has any compileTimeOptionPragmas"
 	| compileTimeOptionPragmas returnTypeIsFunctionPointer |
+	
 	(compileTimeOptionPragmas := self compileTimeOptionPragmas) notEmpty ifTrue:
 		[self outputConditionalDefineFor: compileTimeOptionPragmas on: aStream].
 	returnTypeIsFunctionPointer := returnType last = $)
-									and: [returnType includesSubString: (aCodeGen cFunctionNameFor: selector)].
+									and: [returnType includesSubstring: (aCodeGen cFunctionNameFor: selector)].
 	export 
 		ifTrue:
 			[aStream nextPutAll: 'EXPORT('; nextPutAll: returnType; nextPut: $)]

@@ -12,10 +12,10 @@ cLiteralFor: anObject
 									ifTrue: ['0x', (anObject printStringBase: 16)]
 									ifFalse: [anObject printString].
 				^anObject > 16rFFFFFFFF
-						ifTrue: [printString, ObjectMemory unsignedLongLongSuffix]
+						ifTrue: [printString, self class unsignedLongLongSuffix]
 						ifFalse: [anObject < 16r7FFFFFFF
 							ifTrue: [printString]
-							ifFalse: [printString, ObjectMemory unsignedIntegerSuffix]]].
+							ifFalse: [printString, self class unsignedIntegerSuffix]]].
 			anObject isFloat ifTrue:
 				[^anObject printString]]
 		ifFalse:

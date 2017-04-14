@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core-C translation
 isPotentialCCaseLabel: stmt in: aTMethod
 	(stmt isVariableNode
 	 or: [stmt isLiteralNode
@@ -19,7 +19,7 @@ isPotentialCCaseLabel: stmt in: aTMethod
 		 (stmt arguments isEmpty
 		  and: [implementingClass := aTMethod definingClass whichClassIncludesSelector: selector.
 			   implementingClass ifNil:
-				[implementingClass := aTMethod definingClass objectMemoryClass whichClassIncludesSelector: selector].
+				[implementingClass := aTMethod definingClass "objectMemoryClass" whichClassIncludesSelector: selector].
 			   method := implementingClass >> selector.
 			   (method isQuick
 				or: [(method literalAt: 1) isInteger

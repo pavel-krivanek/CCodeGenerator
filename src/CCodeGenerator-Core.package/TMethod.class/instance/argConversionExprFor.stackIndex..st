@@ -7,7 +7,7 @@ argConversionExprFor: varName stackIndex: stackIndex
 	(declarations includesKey: varName) ifTrue:[
 		decl := declarations at: varName.
 		(decl includes: $*) ifTrue:["array"
-			(decl includesSubString: 'char') ifTrue:[ | expr |
+			(decl includesSubstring: 'char') ifTrue:[ | expr |
 				expr := '(interpreterProxy isBytes: (interpreterProxy stackValue: (stackIndex))) ifFalse:[^interpreterProxy primitiveFail].'.
 				expr := expr copyReplaceAll: 'interpreterProxy' with: self vmNameString.
 				expr := expr copyReplaceAll: 'stackIndex' with: stackIndex printString.

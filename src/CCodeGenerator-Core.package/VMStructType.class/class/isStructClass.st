@@ -1,3 +1,3 @@
-translation
+as yet unclassified
 isStructClass
 	^true

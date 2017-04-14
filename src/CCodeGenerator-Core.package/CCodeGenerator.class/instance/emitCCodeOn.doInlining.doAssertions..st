@@ -4,7 +4,7 @@ emitCCodeOn: aStream doInlining: inlineFlag doAssertions: assertionFlag
 
 	| verbose methodList |
 	"method preparation"
-	verbose := false.
+	verbose := true.
 	self prepareMethods.
 	verbose ifTrue: [
 		self printUnboundCallWarnings.
@@ -28,6 +28,17 @@ emitCCodeOn: aStream doInlining: inlineFlag doAssertions: assertionFlag
 	 handle any global variable usage in each method"
 	methodList do: [:m | self checkForGlobalUsage: (m removeUnusedTempsAndNilIfRequiredIn: self) in: m].
 	self localizeGlobalVariables.
+	
+	
+(methodList select: [:m| m isRealMethod and: [self shouldGenerateMethod: m]]) do:
+		[:m |
+
+		
+		 "TODO"
+		 m recordDeclarationsIn: self.
+		 m returnType ifNil: [
+			m inferReturnTypeIn: self]].
+	
 
 	self emitCHeaderOn: aStream.
 	self emitCConstantsOn: aStream.
@@ -36,4 +47,4 @@ emitCCodeOn: aStream doInlining: inlineFlag doAssertions: assertionFlag
 	self emitCVariablesOn: aStream.
 	self emitCMacros: methodList on: aStream.
 	self emitCMethods: methodList on: aStream.
-	self emitExportsOn: aStream.
+	

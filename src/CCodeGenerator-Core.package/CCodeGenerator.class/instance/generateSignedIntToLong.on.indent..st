@@ -4,7 +4,7 @@ generateSignedIntToLong: msgNode on: aStream indent: level
 
 	aStream nextPutAll: '((usqInt) '.
 	(vmClass notNil
-	 and: [vmClass objectMemoryClass wordSize = 8]) ifTrue:
+	 and: [vmClass wordSize = 8]) ifTrue:
 		[aStream nextPutAll: '(int)'].
 	self emitCExpression: msgNode receiver on: aStream.
 	aStream nextPut: $)

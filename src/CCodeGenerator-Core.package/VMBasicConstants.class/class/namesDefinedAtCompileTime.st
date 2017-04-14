@@ -5,8 +5,5 @@ namesDefinedAtCompileTime
 	 the various initializeMiscConstants methods.  But that they have values should
 	 /not/ cause the code generator to do dead code elimination based on their
 	 default values."
-	^#(	VMBIGENDIAN
-		IMMUTABILITY
-		STACKVM COGVM COGMTVM SPURVM
-		"Pharo vs Squeak" PharoVM
-		"Newspeak" EnforceAccessControl)
+	<todo>
+	^#(	VMBIGENDIAN)

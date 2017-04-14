@@ -10,7 +10,7 @@ emitLiteralArrayDeclarationOn: aStream level: level generator: aCCodeGen
 						arrayInitializerCalled: 'aLiteralArray'
 						for: expression args first value
 						sizeString: nil
-						type: type allButLast) withBlanksTrimmed;
+						type: type allButLast) trimBoth;
 		nextPut: $;;
 		crtab: level + 1;
 		nextPutAll: variable name;

@@ -16,7 +16,6 @@ emitCHeaderOn: aStream
 	"Additional header files; include squeak VM ones last"
 	self emitHeaderFiles: (headerFiles reject: [:hdr| hdr includes: $<]) on: aStream.
 
-	vmClass isInterpreterClass ifTrue:
-		[self maybePutPreambleFor: vmClass on: aStream].
+	self putPreambleFor: vmClass on: aStream.
 
 	aStream cr

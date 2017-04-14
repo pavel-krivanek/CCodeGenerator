@@ -9,11 +9,11 @@ generateIntegerObjectOf: msgNode on: aStream indent: level
 		(int)(16r1FFFFF << 3) = (int)16rFFFFFFF8 = -8
 	 whereas
 		(long)(16r1FFFFF << 3) = (long) 16rFFFFFFF8 = 4294967288."
-	castToSqint := expr isConstant and: [vmClass isNil or: [vmClass objectMemoryClass wordSize = 8]].
+	castToSqint := expr isConstant and: [vmClass isNil or: [vmClass wordSize = 8]].
 	castToSqint ifTrue:
 		[aStream nextPutAll: '(sqInt)'].
 	self emitCExpression: expr on: aStream.
 	aStream
 		nextPutAll: ' << ';
-		print: vmClass objectMemoryClass numSmallIntegerTagBits;
+		print: vmClass class numSmallIntegerTagBits;
 		nextPutAll: ') | 1)'

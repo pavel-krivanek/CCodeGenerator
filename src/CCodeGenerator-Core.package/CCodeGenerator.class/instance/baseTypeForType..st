@@ -23,4 +23,4 @@ baseTypeForType: aCType
 	[(openidx := type indexOf: $[ startingAt: openidx + 1) > 0
 	 and: [(closeidx := type indexOf: $] startingAt: openidx + 1) > 0]] whileTrue:
 		[type := type copyReplaceFrom: openidx to: closeidx with: '*'].
-	^type withBlanksTrimmed
+	^type trimBoth

@@ -1,4 +1,4 @@
-*VMMaker-translation support
+*CCodeGenerator-Core-translation support
 indexOfWord: aSubString startingAt: startIndex
 	| index |
 	index := startIndex.

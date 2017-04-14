@@ -1,5 +1,6 @@
 initialize-release
 initialize
+
 	translationDict := Dictionary new.
 	inlineList := Array new.
 	constants := Dictionary new: 100.

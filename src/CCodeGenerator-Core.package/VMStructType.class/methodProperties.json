@@ -1,0 +1,20 @@
+{
+	"instance" : { },
+	"class" : {
+		"printTypedefOn:" : "PavelKrivanek 4/14/2016 11:49",
+		"structTagName" : "PavelKrivanek 4/14/2016 11:50",
+		"isStructClass" : "PavelKrivanek 4/13/2016 16:17",
+		"instVarNamesAndTypesForTranslationDo:" : "eem 2/10/2009 08:54",
+		"isTypePointerToStruct:" : "PavelKrivanek 4/14/2016 16:03",
+		"isNonArgumentImplicitReceiverVariableName:" : "PavelKrivanek 4/18/2016 11:58",
+		"isTypeStruct:" : "PavelKrivanek 4/14/2016 16:04",
+		"isAccessor:" : "PavelKrivanek 4/18/2016 11:59",
+		"typeForSelf" : "PavelKrivanek 4/18/2016 11:53",
+		"structTypeName" : "PavelKrivanek 4/14/2016 11:50",
+		"structTargetKindForType:" : "PavelKrivanek 4/14/2016 16:24",
+		"structTargetKindForDeclaration:" : "eem 8/13/2012 16:37",
+		"returnTypeForAccessor:" : "PavelKrivanek 4/14/2016 16:22",
+		"implicitReturnTypeFor:" : "PavelKrivanek 4/14/2016 15:51",
+		"needsTypeTag" : "PavelKrivanek 4/14/2016 15:45"
+	}
+}

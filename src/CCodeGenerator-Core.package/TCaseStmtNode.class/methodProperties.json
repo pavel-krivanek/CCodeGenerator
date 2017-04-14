@@ -1,0 +1,27 @@
+{
+	"instance" : {
+		"removeAssertions" : "ikp 9/26/97 14:50",
+		"emitCCodeOn:addToEndOfCases:level:generator:" : "eem 11/7/2009 15:54",
+		"bindVariableUsesIn:" : "jm 12/10/1998 18:26",
+		"bindVariablesIn:" : "",
+		"emitCCodeOn:level:generator:" : "eem 11/18/2012 19:55",
+		"expression" : "",
+		"customizeShortCasesForDispatchVar:in:method:" : "eem 11/12/2012 14:58",
+		"postCopy" : "eem 2/9/2009 19:24",
+		"customizeCase:forVar:from:to:in:method:expandedCases:" : "eem 11/12/2012 14:58",
+		"nodesDo:unless:" : "eem 2/27/2009 16:47",
+		"setExpression:selectors:arguments:" : "ar 11/18/1999 20:08",
+		"nodesDo:parent:unless:" : "eem 3/31/2015 10:56",
+		"cases" : "",
+		"replaceNodesIn:" : "",
+		"nodesDo:" : "eem 11/19/2012 12:12",
+		"setExpression:cases:" : "eem 10/29/2012 11:34",
+		"nodesDo:parent:" : "eem 10/13/2013 17:00",
+		"printOn:level:" : "",
+		"isCaseStmt" : "",
+		"processSharedCodeBlocks:forCase:in:method:expandedCases:" : "eem 7/26/2014 07:51",
+		"filterCommentsFrom:" : "eem 11/18/2012 19:55",
+		"bindVariableUsesIn:andConstantFoldIf:in:" : "eem 10/29/2012 11:38"
+	},
+	"class" : { }
+}

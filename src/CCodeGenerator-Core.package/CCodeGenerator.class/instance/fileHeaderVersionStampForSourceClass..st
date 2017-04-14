@@ -1,25 +1,16 @@
 C code generator
 fileHeaderVersionStampForSourceClass: sourceClass
 	"Answer a suitable version stamp to include in the header."
-	| exportBuildInfo slangDescription sourceDescription |
-	[exportBuildInfo := sourceClass isInterpreterClass
-						ifTrue: ['char *__interpBuildInfo = __buildInfo;']
-						ifFalse:
-							[sourceClass isCogitClass
-								ifTrue: ['char *__cogitBuildInfo = __buildInfo;']
-								ifFalse:
-									[sourceClass isPluginClass ifTrue:
-										[sourceClass exportBuildInfoOrNil]]]]
-		on: MessageNotUnderstood
-		do: [:ex| ex resume: false].
+	| slangDescription sourceDescription |
+
 	[slangDescription := self class monticelloDescriptionFor: self class.
-	 sourceClass ifNotNil:
-		[sourceDescription := [sourceClass monticelloDescription]
+	 sourceClass ifNotNil: [
+		sourceDescription := [sourceClass monticelloDescription]
 								on: MessageNotUnderstood
 								do: [:ex| self class monticelloDescriptionFor: sourceClass]]]
 		on: Error
 		do: [:ex| | now |
-			now := Time dateAndTimeNow printString.
+			now := DateAndTime now printString.
 			^String streamContents:
 				[:s|
 				s nextPutAll: '/* Automatically generated from Squeak on '.
@@ -29,8 +20,6 @@ fileHeaderVersionStampForSourceClass: sourceClass
 				s nextPutAll: now.
 				s nextPutAll: '. Compiled on "'.
 				s nextPutAll: '__DATE__ ;'; cr.
-				exportBuildInfo ifNotNil:
-					[s nextPutAll: exportBuildInfo; cr].
 				s cr]].
 	^String streamContents:
 		[:s|
@@ -43,6 +32,4 @@ fileHeaderVersionStampForSourceClass: sourceClass
 			[s nextPutAll: 'static char __buildInfo[] = "'.
 			 s nextPutAll: (sourceDescription copyReplaceAll: '\' withCRs with: '\n\', '\' withCRs).
 			 s nextPutAll: ' " __DATE__ ;'; cr.
-			exportBuildInfo ifNotNil:
-				[s nextPutAll: exportBuildInfo; cr].
 			s cr]]

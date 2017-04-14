@@ -7,18 +7,18 @@ addClass: aClass
 	self addClassVarsFor: aClass.
 	"ikp..."
 	self addPoolVarsFor: aClass.
-	(aClass inheritsFrom: VMStructType) ifFalse:
-		[variables addAll: (self instVarNamesForClass: aClass)].
+	
+	(aClass inheritsFrom: VMStructType) ifFalse: [
+		variables addAll: (self instVarNamesForClass: aClass)].
+	
 	self retainMethods: (aClass requiredMethodNames: self options).
 	
 	'Adding Class ' , aClass name , '...'
 		displayProgressAt: Sensor cursorPoint
 		from: 0
 		to: aClass selectors size
-		during:
-			[:bar |
-			 aClass selectors doWithIndex:
-				[:sel :i | | source |
+		during: [:bar |
+			 aClass selectors doWithIndex: [:sel :i | 
 				bar value: i.
 				self addMethodFor: aClass selector: sel]].
 	aClass declareCVarsIn: self

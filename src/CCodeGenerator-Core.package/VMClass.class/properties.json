@@ -1,14 +1,13 @@
 {
 	"commentStamp" : "<historical>",
 	"super" : "Object",
-	"category" : "VMMaker-Support",
+	"category" : "CCodeGenerator-Core-Translation to C",
 	"classinstvars" : [
 		"timeStamp",
 		"initializationOptions"
 	],
 	"pools" : [
-		"VMBasicConstants",
-		"VMObjectIndices"
+		"VMBasicConstants"
 	],
 	"classvars" : [
 		"DefaultBase",

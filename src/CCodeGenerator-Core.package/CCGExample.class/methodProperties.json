@@ -1,0 +1,15 @@
+{
+	"instance" : {
+		"toFloat:" : "PavelKrivanek 5/6/2016 10:40",
+		"doesNotWork" : "PavelKrivanek 5/6/2016 10:40",
+		"builtInFunctionsLogical" : "PavelKrivanek 5/6/2016 11:23",
+		"fib4:" : "PavelKrivanek 5/6/2016 10:40",
+		"factorial:" : "PavelKrivanek 5/6/2016 10:40",
+		"builtInFunctionsComparisons" : "PavelKrivanek 5/6/2016 11:40",
+		"string:" : "PavelKrivanek 5/6/2016 10:40",
+		"builtInFunctionsBinary" : "PavelKrivanek 5/6/2016 11:32",
+		"builtInFunctionsNumerical" : "PavelKrivanek 5/6/2016 11:34",
+		"builtInFunctions" : "PavelKrivanek 5/6/2016 11:15"
+	},
+	"class" : { }
+}

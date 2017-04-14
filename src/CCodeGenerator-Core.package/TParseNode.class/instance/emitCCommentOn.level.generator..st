@@ -11,7 +11,7 @@ emitCCommentOn: aStream level: level generator: aCodeGen
 			[(aCodeGen previousCommentMarksInlining: true) ifTrue: [^true]].
 		aStream crtab: level; nextPutAll: '/* '.
 		((comment at: index) findTokens: Character cr)
-			do: [:line| aStream nextPutAll: line withBlanksTrimmed]
+			do: [:line| aStream nextPutAll: line trimBoth]
 			separatedBy: [aStream crtab: level; next: 3 put: Character space].
 		aStream nextPutAll: ' */'].
 	 aStream cr

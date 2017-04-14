@@ -13,8 +13,8 @@ cLiteralFor: anObject name: smalltalkName
 					ifTrue: [hex first = $- ifTrue: ['-0x', hex allButFirst] ifFalse: ['0x', hex]]
 					ifFalse: [dec].
 		^anObject > 16rFFFFFFFF
-			ifTrue: [rep, ObjectMemory unsignedLongLongSuffix]
+			ifTrue: [rep, self class unsignedLongLongSuffix]
 			ifFalse: [anObject < 16r7FFFFFFF
 				ifTrue: [rep]
-				ifFalse: [rep, ObjectMemory unsignedIntegerSuffix]]].
+				ifFalse: [rep, self class unsignedIntegerSuffix]]].
 	^self cLiteralFor: anObject

@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "tpr 5/2/2003 14:30",
 	"super" : "Object",
-	"category" : "VMMaker-Translation to C",
+	"category" : "CCodeGenerator-Core-Translation to C",
 	"classinstvars" : [ ],
 	"pools" : [
 		"VMBasicConstants"
@@ -40,8 +40,7 @@
 		"optionsDictionary",
 		"breakSrcInlineSelectors",
 		"breakDestInlineSelectors",
-		"breakOnInline",
-		"vmMaker"
+		"breakOnInline"
 	],
 	"name" : "CCodeGenerator",
 	"type" : "normal"

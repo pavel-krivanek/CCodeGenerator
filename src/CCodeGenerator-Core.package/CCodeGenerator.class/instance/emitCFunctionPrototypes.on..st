@@ -23,5 +23,11 @@ emitCFunctionPrototypes: methodList on: aStream
 				[m addFunctionAttribute: 'NoDbgRegParms'].
 			 m inline == #never ifTrue:
 				[m addFunctionAttribute: 'NeverInline']].
+		
+		 "TODO"
+	"	 m recordDeclarationsIn: self.
+		 m returnType ifNil: [
+			m inferReturnTypeIn: self]."
+		
 		m emitCFunctionPrototype: aStream generator: self].
 	aStream cr

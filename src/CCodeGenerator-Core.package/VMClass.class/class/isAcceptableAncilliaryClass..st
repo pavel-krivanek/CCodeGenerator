@@ -1,3 +1,0 @@
-translation
-isAcceptableAncilliaryClass: aClass
-	^true

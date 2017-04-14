@@ -1,0 +1,20 @@
+{
+	"instance" : {
+		"isVariable" : "",
+		"bindVariableUsesIn:andConstantFoldIf:in:" : "eem 10/29/2012 12:57",
+		"structTargetKindIn:" : "eem 10/24/2013 13:02",
+		"emitCCodeOn:level:generator:" : "eem 7/2/2008 15:38",
+		"name" : "eem 2/15/2009 09:09",
+		"bindVariablesIn:" : "eem 2/9/2009 19:22",
+		"hasSideEffect" : "eem 11/17/2015 14:28",
+		"setName:" : "",
+		"isLeaf" : "",
+		"isSameAs:" : "eem 1/1/2014 11:37",
+		"bindVariableUsesIn:" : "eem 2/9/2009 19:22",
+		"nameOrValue" : "acg 12/17/1999 07:18",
+		"printOn:level:" : "",
+		"variableNameOrNil" : "eem 11/12/2013 14:22",
+		"nodesDo:parent:" : "eem 10/13/2013 17:10"
+	},
+	"class" : { }
+}

@@ -1,4 +1,4 @@
-*VMMaker-translation support
+*CCodeGenerator-Core-translation support
 copyReplaceAll: oldSubstring with: newSubstring tokenish: tokenishBlock
 	"Answer a copy of the receiver in which all occurrences of
 	 oldSubstring have been replaced by newSubstring.

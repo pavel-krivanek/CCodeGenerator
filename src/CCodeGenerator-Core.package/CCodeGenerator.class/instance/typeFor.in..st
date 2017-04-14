@@ -1,4 +1,4 @@
-type inference
+utilities
 typeFor: aNode in: aTMethod
 	aNode isVariable ifTrue:
 		[^(aTMethod typeFor: aNode in: self) ifNil: [#sqInt]].

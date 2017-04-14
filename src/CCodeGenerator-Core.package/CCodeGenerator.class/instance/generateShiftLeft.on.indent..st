@@ -7,7 +7,7 @@ generateShiftLeft: msgNode on: aStream indent: level
 	rcvr := msgNode receiver.
 	arg := msgNode args first.
 	valueBeyondInt := 1 bitShift: 32. "The default type of const << N is int."
-	castToLong := vmClass notNil and: [vmClass objectMemoryClass wordSize = 8].
+	castToLong := vmClass notNil and: [vmClass wordSize = 8].
 	castToLong ifFalse:
 		[rcvr constantNumbericValueOrNil ifNotNil:
 			[:rcvrVal|

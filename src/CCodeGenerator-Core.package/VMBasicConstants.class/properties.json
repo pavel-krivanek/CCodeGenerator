@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "<historical>",
 	"super" : "SharedPool",
-	"category" : "VMMaker-Interpreter",
+	"category" : "CCodeGenerator-Core-Support",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [

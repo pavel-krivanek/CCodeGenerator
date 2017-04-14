@@ -1,0 +1,17 @@
+{
+	"instance" : {
+		"constantNumbericValueOrNil" : "eem 12/11/2014 11:38",
+		"emitCCodeOn:level:generator:" : "eem 10/29/2012 13:06",
+		"name" : "ar 7/8/2003 11:04",
+		"setValue:" : "",
+		"hasSideEffect" : "eem 11/17/2015 14:29",
+		"value" : "",
+		"isLeaf" : "",
+		"isSameAs:" : "eem 1/1/2014 11:52",
+		"printOn:level:" : "eem 12/12/2012 11:23",
+		"nameOrValue" : "acg 12/17/1999 07:19",
+		"isConstant" : "",
+		"nodesDo:parent:" : "eem 10/13/2013 17:10"
+	},
+	"class" : { }
+}

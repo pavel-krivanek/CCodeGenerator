@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core-C translation
 asTranslatorNodeIn: aTMethod
 	"Make a CCodeGenerator equivalent of a return."
 	| exprTranslation lastExpr |
