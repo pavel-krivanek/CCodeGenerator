@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TParseNode",
+	"category" : "VMMaker-Translation to C",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"arguments",
+		"statements"
+	],
+	"name" : "TStmtListNode",
+	"type" : "normal"
+}

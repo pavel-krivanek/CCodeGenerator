@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TParseNode",
+	"category" : "VMMaker-Translation to C",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"expression"
+	],
+	"name" : "TReturnNode",
+	"type" : "normal"
+}

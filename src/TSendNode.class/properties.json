@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "TParseNode",
+	"category" : "VMMaker-Translation to C",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"selector",
+		"receiver",
+		"arguments",
+		"isBuiltinOperator"
+	],
+	"name" : "TSendNode",
+	"type" : "normal"
+}

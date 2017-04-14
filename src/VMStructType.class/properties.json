@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "VMClass",
+	"category" : "VMMaker-Support",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"StructTypeNameCache"
+	],
+	"instvars" : [ ],
+	"name" : "VMStructType",
+	"type" : "normal"
+}
