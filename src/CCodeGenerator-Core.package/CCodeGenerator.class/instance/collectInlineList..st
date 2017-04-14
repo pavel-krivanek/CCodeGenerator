@@ -64,7 +64,8 @@ collectInlineList: inlineFlagOrSymbol
 			ifFalse:
 				[(inlineFlagOrSymbol caseOf: {
 						[#asSpecified]			-> [inlineIt == true].
-						[#asSpecifiedOrQuick]	-> [inlineIt == true or: [m compiledMethod isQuick]].
+						[#asSpecifiedOrQuick]	-> [inlineIt == true
+													or: [self isQuickCompiledMethod: m compiledMethod]].
 						[true]					-> [nodeCount < 40 or: [inlineIt == true]].
 						[false]					-> [false]})
 					ifTrue: "inline if method has no C code and is either small or contains inline directive"
@@ -73,9 +74,12 @@ collectInlineList: inlineFlagOrSymbol
 						[(#(asSpecified asSpecifiedOrQuick) includes: inlineFlagOrSymbol) ifTrue:
 							[selectorsOfMethodsNotToInline add: m selector]]]].
 
-	(#(asSpecified asSpecifiedOrQuick) includes: inlineFlagOrSymbol) ifFalse:
-		[callsOf associationsDo:
-			[:assoc|
-			(assoc value = 1
-			 and: [(selectorsOfMethodsNotToInline includes: assoc key) not]) ifTrue:
-				[inlineList add: assoc key]]]
+	(#(asSpecified asSpecifiedOrQuick) includes: inlineFlagOrSymbol)
+		ifTrue:
+			[methods do: [:m| m inline ifNil: [m inline: (inlineList includes: m selector)]]]
+		ifFalse:
+			[callsOf associationsDo:
+				[:assoc|
+				(assoc value = 1
+				 and: [(selectorsOfMethodsNotToInline includes: assoc key) not]) ifTrue:
+					[inlineList add: assoc key]]]

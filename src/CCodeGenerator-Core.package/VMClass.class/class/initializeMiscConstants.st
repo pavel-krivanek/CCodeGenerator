@@ -13,12 +13,12 @@ initializeMiscConstants
 	"Use ifAbsentPut: so that they will get copied back to the
 	 VMMaker's options and dead code will likely be eliminated."
 	"But not these; they're compile-time"
-	MULTIPLEBYTECODESETS := initializationOptions at: #MULTIPLEBYTECODESETS ifAbsent: [false].
 	IMMUTABILITY := initializationOptions at: #IMMUTABILITY ifAbsent: [false].
 
 	"These must be set only if specified, not defaulted, because they are set on the command line or in include files."
 	initializationOptions
 		at: #VMBIGENDIAN	ifPresent: [:value| VMBIGENDIAN := value];
+		at: #ObjectMemory	ifPresent: [:value| SPURVM := value beginsWith: 'Spur'];
 		at: #STACKVM		ifPresent: [:value| STACKVM := value];
 		at: #COGVM		ifPresent: [:value| COGVM := initializationOptions at: #COGVM];
 		at: #COGMTVM		ifPresent: [:value| COGMTVM := initializationOptions at: #COGMTVM]

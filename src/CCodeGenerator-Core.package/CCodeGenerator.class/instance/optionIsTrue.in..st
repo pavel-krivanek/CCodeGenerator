@@ -11,7 +11,7 @@ optionIsTrue: pragma in: aClass
 
 	"If the option is one to be defined at compile time we'll generate a
 	 conditional around its declaration and definition."
-	(VMBasicConstants defineAtCompileTime: key) ifTrue:
+	((vmClass ifNil: [VMBasicConstants]) defineAtCompileTime: key) ifTrue:
 		[^true].
 
 	"Lookup options in options, class variables of the defining class, VMBasicConstants etc."

@@ -21,6 +21,11 @@ inlineSend: aSendNode directReturn: directReturn exitVar: exitVar in: aCodeGen
 		[^nil].
 	meth := meth copy.
 
+	(meth statements size > 1
+	 and: [meth statements first isSend
+	 and: [meth statements first selector == #flag:]]) ifTrue:
+		[meth statements removeFirst].
+
 	"Propagate the return type of an inlined method"
 	(directReturn or: [exitVar notNil]) ifTrue:
 		[exitType := directReturn 
@@ -48,19 +53,23 @@ inlineSend: aSendNode directReturn: directReturn exitVar: exitVar in: aCodeGen
 			 (meth exitVar: exitVar label: exitLabel) "is label used?"
 				ifTrue: [ labels add: exitLabel ]
 				ifFalse: [ exitLabel := nil ]]].
-	(inlineStmts := OrderedCollection new: 100)
+	(inlineStmts := OrderedCollection new: meth statements size + meth args size + 2)
 		add: (label := TLabeledCommentNode new setComment: 'begin ', sel);
 		addAll: (self argAssignmentsFor: meth send: aSendNode in: aCodeGen);
 		addAll: meth statements.  "method body"
-	(directReturn
-	 and: [meth endsWithReturn not]) ifTrue:
-		[inlineStmts add:
-			(TReturnNode new setExpression: (TVariableNode new setName: 'nil'))].
-	exitLabel ~= nil ifTrue:
+	directReturn ifTrue:
+		[meth endsWithReturn
+			ifTrue:
+				[exitVar ifNotNil: "don't remove the returns if being invoked in the context of a return"
+					[inlineStmts at: inlineStmts size put: inlineStmts last copyWithoutReturn]]
+			ifFalse:
+				[inlineStmts add:
+					(TReturnNode new setExpression: (TVariableNode new setName: 'nil'))]].
+	exitLabel ifNotNil:
 		[inlineStmts add:
 			(TLabeledCommentNode new setLabel:
 				exitLabel comment: 'end ', meth selector)].
 	inlineStmts size = 1 ifTrue: "Nuke empty methods; e.g. override of flushAtCache"
-		[self assert: inlineStmts first class == TLabeledCommentNode.
+		[self assert: inlineStmts first isComment.
 		 inlineStmts removeFirst].
 	^inlineStmts
