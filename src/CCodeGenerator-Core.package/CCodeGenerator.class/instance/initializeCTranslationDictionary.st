@@ -38,6 +38,11 @@ initializeCTranslationDictionary
 	#truncateTo:		#generateTruncateTo:on:indent:
 	#rounded			#generateRounded:on:indent:
 
+	#byteSwap32		#generateByteSwap32:on:indent:
+	#byteSwap64		#generateByteSwap64:on:indent:
+	#byteSwapped32IfBigEndian:	generateByteSwap32IfBigEndian:on:indent:
+	#byteSwapped64IfBigEndian:	generateByteSwap64IfBigEndian:on:indent:
+	
 	#<				#generateLessThan:on:indent:
 	#<=			#generateLessThanOrEqual:on:indent:
 	#=				#generateEqual:on:indent:
@@ -97,7 +102,9 @@ initializeCTranslationDictionary
 	#inline:						#generateInlineDirective:on:indent:
 	#asFloat					#generateAsFloat:on:indent:
 	#asInteger					#generateAsInteger:on:indent:
+	#asIntegerPtr				#generateAsIntegerPtr:on:indent:
 	#asUnsignedInteger		#generateAsUnsignedInteger:on:indent:
+	#asUnsignedIntegerPtr		#generateAsUnsignedIntegerPtr:on:indent:
 	#asLong					#generateAsLong:on:indent:
 	#asUnsignedLong			#generateAsUnsignedLong:on:indent:
 	#asUnsignedLongLong		#generateAsUnsignedLongLong:on:indent:
@@ -131,6 +138,8 @@ initializeCTranslationDictionary
 	#value:value:						#generateValue:on:indent:
 	#value:value:value:					#generateValue:on:indent:
 	#value:value:value:value:			#generateValue:on:indent:
+	#value:value:value:value:value:			#generateValue:on:indent:
+	#value:value:value:value:value:value:	#generateValue:on:indent:
 
 	#deny:								#generateDeny:on:indent:
 

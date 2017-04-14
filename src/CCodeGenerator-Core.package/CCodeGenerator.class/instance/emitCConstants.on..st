@@ -7,15 +7,18 @@ emitCConstants: constList on: aStream
 		[:varName| | node default value conditional |
 		node := constants at: varName.
 		node name isEmpty ifFalse:
-			["If the definition includes a C comment, take it as is, otherwise convert the value from Smalltalk to C.
+			["If the definition includes a C comment, or looks like a conditional, take it as is, otherwise convert
+			  the value from Smalltalk to C.
 			  Allow the class to provide an alternative definition, either of just the value or the whole shebang."
-			default := (node value isString and: [node value includesSubString: '/*'])
+			default := (node value isString
+						and: [(node value includesSubString: '/*')
+								or: [(node value includesSubString: ' ? ') and: [node value includesSubString: ' : ']]])
 							ifTrue: [node value]
 							ifFalse: [self cLiteralFor: node value name: varName].
 			default = #undefined
 				ifTrue: [aStream nextPutAll: '#undef '; nextPutAll: node name; cr]
 				ifFalse:
-					[conditional := VMBasicConstants defineAtCompileTime: node name.
+					[conditional := (vmClass ifNil: VMBasicConstants) defineAtCompileTime: node name.
 					conditional ifTrue:
 						[aStream nextPutAll: '#if !defined('; nextPutAll: node name; nextPutAll: ') /* Allow this to be overridden on the compiler command line */'; cr].
 					value := vmClass

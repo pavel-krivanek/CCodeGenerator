@@ -26,13 +26,15 @@ initializeMiscConstants
 	PharoVM := initializationOptions at: #PharoVM ifAbsentPut: [false].
 	NewspeakVM := initializationOptions at: #NewspeakVM ifAbsentPut: [false].
 	SistaVM := initializationOptions at: #SistaVM ifAbsentPut: [false].
+	LowcodeVM := initializationOptions at: #LowcodeVM ifAbsentPut: [false].
+	MULTIPLEBYTECODESETS := initializationOptions at: #MULTIPLEBYTECODESETS ifAbsentPut: [false].
 	"But not these; they're compile-time"
-	MULTIPLEBYTECODESETS := initializationOptions at: #MULTIPLEBYTECODESETS ifAbsent: [false].
 	IMMUTABILITY := initializationOptions at: #IMMUTABILITY ifAbsent: [false].
 
 	"These must be set only if specified, not defaulted, because they are set on the command line or in include files."
 	initializationOptions
 		at: #VMBIGENDIAN	ifPresent: [:value| VMBIGENDIAN := value];
+		at: #ObjectMemory	ifPresent: [:value| SPURVM := value beginsWith: 'Spur'];
 		at: #STACKVM		ifPresent: [:value| STACKVM := value];
 		at: #COGVM		ifPresent: [:value| COGVM := initializationOptions at: #COGVM];
 		at: #COGMTVM		ifPresent: [:value| COGMTVM := initializationOptions at: #COGMTVM]
