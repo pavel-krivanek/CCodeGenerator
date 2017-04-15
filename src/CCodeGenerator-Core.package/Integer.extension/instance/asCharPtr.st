@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 asCharPtr
 	^(Notification new tag: #getInterpreter; signal)
 		ifNotNil: [:interpreter|

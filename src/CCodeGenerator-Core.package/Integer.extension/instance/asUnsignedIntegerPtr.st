@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 asUnsignedIntegerPtr
 	"Since the simulator deals with positive integers most of the time we assert that the receiver is greater than zero.
 	 But one major exception is stack pointers in the StackInterpreterSimulator, which are negative.  So don't fail

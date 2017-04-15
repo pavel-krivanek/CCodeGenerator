@@ -1,4 +1,4 @@
-*VMMaker-bit manipulation
+*CCodeGenerator-Core
 byteSwap32
 	"swap the bytes of a 32 bit unsigned integer"
 	
