@@ -5,9 +5,9 @@ sizeOfIntegralCType: anIntegralCType "<String>"
 	(anIntegralCType beginsWith: 'register ') ifTrue:
 		[^self sizeOfIntegralCType: (anIntegralCType allButFirst: 9)].
 	prunedCType := (anIntegralCType beginsWith: 'unsigned ')
-						ifTrue: [(anIntegralCType allButFirst: 9) trimBoth]
+						ifTrue: [(anIntegralCType allButFirst: 9) withBlanksTrimmed]
 						ifFalse: [(anIntegralCType beginsWith: 'signed ')
-									ifTrue: [(anIntegralCType allButFirst: 7) trimBoth]
+									ifTrue: [(anIntegralCType allButFirst: 7) withBlanksTrimmed]
 									ifFalse: [anIntegralCType]].
 	
 	^prunedCType asString caseOf: {
@@ -30,5 +30,5 @@ sizeOfIntegralCType: anIntegralCType "<String>"
 		[((anIntegralCType beginsWith: 'unsigned') "e.g. 'unsigned  : 8'"
 		  and: [(anIntegralCType includesAnyOf: '[*]') not
 		  and: [(index := anIntegralCType indexOf: $:) > 0]])
-			ifTrue: [(Integer readFrom: (anIntegralCType copyFrom: index + 1 to: anIntegralCType size) trimBoth readStream) + 7 // 8]
+			ifTrue: [(Integer readFrom: (anIntegralCType copyFrom: index + 1 to: anIntegralCType size) withBlanksTrimmed readStream) + 7 // 8]
 			ifFalse: [self error: 'unrecognized integral type']]
