@@ -1,0 +1,28 @@
+originalRepository := MCHttpRepository
+    location: 'http://source.squeak.org/VMMaker'
+    user: ''
+    password: ''.
+
+exportDir := 'metadataless' asFileReference ensureCreateDirectory.
+
+versions := #('VMMaker.oscog-eem.2218.mcz') collect: [ :packageName |
+	originalRepository loadVersionFromFileNamed: packageName ].
+
+versions do: [ :version |
+	IceMetadatalessFileTreeWriter
+		fileOut: (version)
+		on: (MCFileTreeRepository new directory: exportDir asFileReference ).
+	 ].
+
+names := 'CCodeGenerator/src/CCodeGenerator-Core.package' asFileReference entries collect: #name.
+all := 'metadataless/VMMaker.oscog.package' asFileReference entries.
+
+toDelete := all select: [ :each | (names includes: each name) not ].
+
+toDelete do: [:entry | entry asFileReference moveTo: ('delete'  asFileReference / entry name)].
+
+(toDelete collect: #asFileReference) do: [:ref | ref name].
+
+names := 'CCodeGenerator/src/CCodeGenerator-Core.package' asFileReference entries collect: #name.
+
+
