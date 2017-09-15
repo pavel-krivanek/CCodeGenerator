@@ -3,7 +3,7 @@ emitCCodeAsFieldReferenceOn: aStream level: level generator: aCodeGen
 	"If appropriate, translate this message send as a pointer dereference"
 
 	| parenCount |
-	(self isStructSendIn: aCodeGen) ifFalse:
+	(aCodeGen isStructSend: self) ifFalse:
 		[^false].
 
 	parenCount := receiver isSend ifTrue: [2] ifFalse: [1].

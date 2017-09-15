@@ -26,7 +26,7 @@ generateInlineCppIfElse: msgNode asArgument: asArgument on: aStream indent: leve
 				[expansion := expansion allButFirst: (expansion findFirst: [:c| c ~~ Character tab]) - 1].
 			 aStream nextPutAll: expansion]].
 
-	(self nilOrBooleanConditionFor: msgNode) ifNotNil:
+	(self nilOrBooleanConditionFor: msgNode args first) ifNotNil:
 		[:condition|
 		 condition
 			ifTrue:

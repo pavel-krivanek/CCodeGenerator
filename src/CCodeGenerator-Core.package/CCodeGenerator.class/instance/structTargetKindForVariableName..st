@@ -1,3 +1,5 @@
 C code generator
 structTargetKindForVariableName: varName "<String>"
-	^VMStructType structTargetKindForDeclaration: (self typeOfVariable: varName)
+	^(self typeOfVariable: varName) ifNotNil:
+		[:declaration|
+		 self structTargetKindForDeclaration: declaration]

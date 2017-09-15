@@ -18,7 +18,7 @@ isSubstitutableNode: aNode intoMethod: targetMeth in: aCodeGen
 
 	(aNode isSend
 	 and: [aNode numArgs = 0
-	 and: [aNode isStructSendIn: aCodeGen]]) ifTrue:
+	 and: [aCodeGen isStructSend: aNode]]) ifTrue:
 		[^true].
 
 	"scan expression tree; must contain only constants, builtin ops, and inlineable vars"
@@ -26,7 +26,7 @@ isSubstitutableNode: aNode intoMethod: targetMeth in: aCodeGen
 		node isSend ifTrue: [
 			(node isBuiltinOperator
 			 or: [node numArgs = 0
-				 and: [node isStructSendIn: aCodeGen]]) ifFalse: [ ^false ].
+				 and: [aCodeGen isStructSend: node]]) ifFalse: [ ^false ].
 		].
 		node isVariable ifTrue: [
 			var := node name.

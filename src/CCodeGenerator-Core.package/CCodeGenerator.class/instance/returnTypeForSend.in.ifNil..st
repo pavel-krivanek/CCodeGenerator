@@ -18,7 +18,7 @@ returnTypeForSend: sendNode in: aTMethod ifNil: typeIfNil
 				caseOf: {
 				[#integerValueOf:]		->	[#sqInt].
 				[#isIntegerObject:]		->	[#int].
-				[#negated]				->	[self promoteArithmeticTypes: (self typeFor: sendNode receiver in: aTMethod) and: #int].
+				[#negated]				->	[self promoteArithmeticTypes: (sendNode receiver typeFrom: self in: aTMethod) and: #int].
 				[#+]					->	[self typeForArithmetic: sendNode in: aTMethod].
 				[#-]						->	[self typeForArithmetic: sendNode in: aTMethod].
 				[#*]					->	[self typeForArithmetic: sendNode in: aTMethod].
@@ -29,9 +29,9 @@ returnTypeForSend: sendNode in: aTMethod ifNil: typeIfNil
 				[#quo:]					->	[self typeForArithmetic: sendNode in: aTMethod].
 				"C99 Sec Bitwise shift operators ... 3 Sematics ...
 				 The integer promotions are performed on each of the operands. The type of the result is that of the promoted left operand..."
-				[#>>]					->	[self typeFor: sendNode receiver in: aTMethod].
-				[#<<]					->	[self typeFor: sendNode receiver in: aTMethod].
-				[#addressOf:]			->	[(self typeFor: sendNode receiver in: aTMethod)
+				[#>>]					->	[sendNode receiver typeFrom: self in: aTMethod].
+				[#<<]					->	[sendNode receiver typeFrom: self in: aTMethod].
+				[#addressOf:]			->	[(sendNode receiver typeFrom: self in: aTMethod)
 												ifNil: [#sqInt]
 												ifNotNil: [:type| type, (type last isLetter ifTrue: [' *'] ifFalse: ['*'])]].
 				[#at:]					->	[self typeForDereference: sendNode in: aTMethod].
@@ -40,7 +40,7 @@ returnTypeForSend: sendNode in: aTMethod ifNil: typeIfNil
 				[#bitXor:]				->	[self typeForArithmetic: sendNode in: aTMethod].
 				[#bitClear:]				->	[self typeForArithmetic: sendNode in: aTMethod].
 				[#bitInvert32]			->	[#'unsigned int'].
-				[#bitInvert64]			->	[self promoteArithmeticTypes: (self typeFor: sendNode receiver in: aTMethod) and: #int].
+				[#bitInvert64]			->	[self promoteArithmeticTypes: (sendNode receiver typeFrom: self in: aTMethod) and: #int].
 				[#byteSwap32]			->	[#'unsigned int'].
 				[#byteSwap64]			->	[#'unsigned long long'].
 				[#byteSwapped32IfBigEndian:]	->	[#'unsigned int'].
