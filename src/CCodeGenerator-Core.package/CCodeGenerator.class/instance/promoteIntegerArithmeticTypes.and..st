@@ -7,7 +7,7 @@ promoteIntegerArithmeticTypes: firstType and: secondType
 	6.3.1.1 ...snip...
 		If an int can represent all values of the original type, the value is converted to an int;
 		otherwise, it is converted to an unsigned int. These are called the integer promotions.
-		All other types are unchanged by the inte ger promotions
+		All other types are unchanged by the integer promotions
 
 	6.3.1.8 ...snip...
 		Otherwise, the integer promotions are performed on both operands
@@ -30,7 +30,7 @@ promoteIntegerArithmeticTypes: firstType and: secondType
 			Otherwise, both operands are converted to the unsigned integer type corresponding to
 			the type of the operand with signed integer type.
 
-	This is so that the generated code behaviour is unsensitive to inlining."
+	This is so that the generated code behaviour is insensitive to inlining."
 	| length1 length2 intSize |
 	length1 := self sizeOfIntegralCType: firstType.
 	length2 := self sizeOfIntegralCType: secondType.

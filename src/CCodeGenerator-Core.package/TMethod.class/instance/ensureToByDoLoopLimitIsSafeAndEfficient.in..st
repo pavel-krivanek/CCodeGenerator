@@ -11,7 +11,7 @@ ensureToByDoLoopLimitIsSafeAndEfficient: node in: aCodeGen
 						[:subNode|
 						subNode isSend
 						and: [(aCodeGen isBuiltinSelector: subNode selector) not
-						and: [(subNode isStructSendIn: aCodeGen) not]]].
+						and: [(aCodeGen isStructSend: subNode) not]]].
 	 node args size = 4
 		ifTrue:
 			[hasSideEffects

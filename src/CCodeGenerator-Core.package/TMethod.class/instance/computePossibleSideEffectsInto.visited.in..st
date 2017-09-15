@@ -17,7 +17,7 @@ computePossibleSideEffectsInto: writtenToVars visited: visitedSelectors in: aCod
 					[writtenToVars add: node variable name].
 			(node isSend
 			 and: [node isBuiltinOperator not
-			 and: [(node isStructSendIn: aCodeGen) not]]) ifTrue:
+			 and: [(aCodeGen isStructSend: node) not]]) ifTrue:
 				[(aCodeGen methodNamed: node selector) ifNotNil:
 					[:method|
 					 method

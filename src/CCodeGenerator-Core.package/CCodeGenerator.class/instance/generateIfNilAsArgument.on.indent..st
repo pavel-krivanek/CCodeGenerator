@@ -12,7 +12,7 @@ generateIfNilAsArgument: msgNode on: aStream indent: level
 			 msgNode receiver emitCCodeAsArgumentOn: aStream level: 0 generator: self.
 			 (msgNode receiver isLeaf
 			  or: [msgNode receiver isSend
-				  and: [(msgNode receiver isStructSendIn: self)
+				  and: [(self isStructSend: msgNode receiver)
 				  and: [msgNode receiver receiver isLeaf]]]) ifFalse:
 				[logger cr; nextPutAll: 'sending ifNil: to non-leaf in '; nextPutAll: currentMethod selector].
 			 aStream nextPut: $)]

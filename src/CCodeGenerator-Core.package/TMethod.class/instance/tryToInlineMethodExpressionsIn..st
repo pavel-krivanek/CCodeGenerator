@@ -5,18 +5,20 @@ tryToInlineMethodExpressionsIn: aCodeGen
 
 	| sendsToInline |
 	sendsToInline := Dictionary new: 100.
-	parseTree
-		nodesDo:
-			[:node|
-			(self inlineableFunctionCall: node in: aCodeGen) ifTrue:
-				[(self inlineFunctionCall: node in: aCodeGen) ifNotNil:
-					[:replacement|
-					 sendsToInline at: node put: replacement]]]
-		unless: "Don't inline the arguments to asserts to keep the asserts readable"
-			[:node|
-			node isSend
-			and: [node selector == #cCode:inSmalltalk:
-				or: [aCodeGen isAssertSelector: node selector]]].
+	aCodeGen
+		pushScope: declarations
+		while: [parseTree
+					nodesDo:
+						[:node|
+						(self inlineableFunctionCall: node in: aCodeGen) ifTrue:
+							[(self inlineFunctionCall: node in: aCodeGen) ifNotNil:
+								[:replacement|
+								 sendsToInline at: node put: replacement]]]
+					unless: "Don't inline the arguments to asserts to keep the asserts readable"
+						[:node|
+						node isSend
+						and: [node selector == #cCode:inSmalltalk:
+							or: [aCodeGen isAssertSelector: node selector]]]].
 
 	sendsToInline isEmpty ifTrue:
 		[^false].

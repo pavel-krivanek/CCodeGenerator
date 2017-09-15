@@ -10,21 +10,21 @@ emitExportsNamed: exportsNamePrefix pluginName: pluginName on: aStream
 					  and: [vmClass objectMemoryClass hasSpurMemoryManagerAPI not]].
 	aStream cr; cr; nextPutAll: 'static char _m[] = "'; nextPutAll: pluginName; nextPutAll: '";'.
 	aStream cr; nextPutAll: 'void* '; nextPutAll: exportsNamePrefix; nextPutAll: '_exports[][3] = {'; cr.
-	((methods select: [:m| m export]) asSortedCollection: [:a :b| a selector caseSensitiveLessOrEqual: b selector]) do:
-		[:method| | compileTimeOptionPragmas primName |
-		(compileTimeOptionPragmas := method compileTimeOptionPragmas) notEmpty ifTrue:
-			[method outputConditionalDefineFor: compileTimeOptionPragmas on: aStream].
-		 primName := self cFunctionNameFor: method selector.
-		 aStream tab; nextPutAll: '{(void*)_m, "'; nextPutAll: primName.
-		 excludeDepth ifFalse:
-			[(self accessorDepthForSelector: primName asSymbol) ifNotNil:
-				[:depth| "store the accessor depth in a hidden byte immediately after the primName"
-				self assert: depth < 128.
-				aStream
-					nextPutAll: '\000\';
-					nextPutAll: ((depth bitAnd: 255) printStringBase: 8 nDigits: 3)]].
-		 aStream nextPutAll: '", (void*)'; nextPutAll: primName; nextPutAll: '},'; cr.
-		 method terminateConditionalDefineFor: compileTimeOptionPragmas on: aStream].
+	self sortedExportMethods do:
+		[:method|
+		self withOptionalConditionalDefineFor: method
+			on: aStream
+			do: [| primName |
+				 primName := self cFunctionNameFor: method selector.
+				 aStream tab; nextPutAll: '{(void*)_m, "'; nextPutAll: primName.
+				 excludeDepth ifFalse:
+					[(self accessorDepthForSelector: primName asSymbol) ifNotNil:
+						[:depth| "store the accessor depth in a hidden byte immediately after the primName"
+						self assert: depth < 128.
+						aStream
+							nextPutAll: '\000\';
+							nextPutAll: ((depth bitAnd: 255) printStringBase: 8 nDigits: 3)]].
+				 aStream nextPutAll: '", (void*)'; nextPutAll: primName; nextPutAll: '},'; cr]].
 	aStream tab; nextPutAll: '{NULL, NULL, NULL}'; cr; nextPutAll: '};'; cr.
 	nilVMClass ifTrue:
 		[vmClass := nil]
