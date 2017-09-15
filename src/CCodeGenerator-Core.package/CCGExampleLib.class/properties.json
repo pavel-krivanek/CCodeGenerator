@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "FFILibrary",
 	"category" : "CCodeGenerator-Core-Examples",
 	"classinstvars" : [ ],
 	"pools" : [ ],
