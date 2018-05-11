@@ -4,7 +4,7 @@ emitCConstants: constList on: aStream
 	constList isEmpty ifTrue: [^self].
 	aStream cr; nextPutAll: '/*** Constants ***/'; cr.
 	(self sortStrings: constList) do:
-		[:varName| | node default value conditional |
+		[:varName| | node default value |
 		node := constants at: varName.
 		node name isEmpty ifFalse:
 			["If the definition includes a C comment, or looks like a conditional, take it as is, otherwise convert
@@ -18,18 +18,16 @@ emitCConstants: constList on: aStream
 			default = #undefined
 				ifTrue: [aStream nextPutAll: '#undef '; nextPutAll: node name; cr]
 				ifFalse:
-					[conditional := (vmClass ifNil: VMBasicConstants) defineAtCompileTime: node name.
-					conditional ifTrue:
-						[aStream nextPutAll: '#if !defined('; nextPutAll: node name; nextPutAll: ') /* Allow this to be overridden on the compiler command line */'; cr].
-					value := vmClass
+					[value := vmClass
 								ifNotNil:
 									[(vmClass specialValueForConstant: node name default: default)
 										ifNotNil: [:specialDef| specialDef]
 										ifNil: [default]]
 								ifNil: [default].
-					value first ~= $# ifTrue:
-						[aStream nextPutAll: (conditional ifTrue: ['# define '] ifFalse: ['#define ']); nextPutAll: node name; space].
-					aStream nextPutAll: value; cr.
-					conditional ifTrue:
-						[aStream nextPutAll: '#endif'; cr]]]].
+					((vmClass ifNil: VMBasicConstants) defineAtCompileTime: node name)
+						ifTrue: [self putConditionalDefineOf: node name
+									as: value
+									comment: 'Allow this to be overridden on the compiler command line'
+									on: aStream]
+						ifFalse: [self putDefineOf: node name as: value on: aStream]]]].
 	aStream cr

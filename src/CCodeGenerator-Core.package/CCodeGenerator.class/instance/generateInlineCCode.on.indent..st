@@ -7,7 +7,8 @@ generateInlineCCode: msgNode on: aStream indent: level
 		ifTrue:
 			[(msgNode args first value at: 1 ifAbsent: nil) = $# ifTrue:
 				[aStream cr].
-			aStream nextPutAll: msgNode args first value]
+			aStream nextPutAll: msgNode args first value.
+			self noteVariableUsageInString: msgNode args first value]
 		ifFalse: [msgNode args first
 					emitCCodeOn: aStream
 					level: level

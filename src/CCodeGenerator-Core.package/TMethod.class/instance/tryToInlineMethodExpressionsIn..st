@@ -13,6 +13,11 @@ tryToInlineMethodExpressionsIn: aCodeGen
 						(self inlineableFunctionCall: node in: aCodeGen) ifTrue:
 							[(self inlineFunctionCall: node in: aCodeGen) ifNotNil:
 								[:replacement|
+								 (replacement isConstant
+								  and: [replacement isDefine not
+								  and: [replacement value isNumber
+								  and: [replacement comment isNil]]]) ifTrue:
+									[replacement comment: node selector].
 								 sendsToInline at: node put: replacement]]]
 					unless: "Don't inline the arguments to asserts to keep the asserts readable"
 						[:node|

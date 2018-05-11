@@ -52,7 +52,7 @@ inferReturnTypeFromReturnsIn: aCodeGen
 											separatedBy: [s nextPutAll: ', '].
 										 s nextPutAll: ' in '; nextPutAll: selector; cr].
 						 Notification signal: message.
-						 aCodeGen logger show: message].
+						 aCodeGen logger ensureCr; show: message].
 					 returnTypes size = 1 ifTrue:
 						[self returnType: returnTypes anyOne]]
 				ifFalse:

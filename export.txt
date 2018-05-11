@@ -5,7 +5,7 @@ originalRepository := MCHttpRepository
 
 exportDir := 'metadataless' asFileReference ensureCreateDirectory.
 
-versions := #('VMMaker.oscog-eem.2218.mcz') collect: [ :packageName |
+versions := #('VMMaker.oscog-VB.2382.mcz') collect: [ :packageName |
 	originalRepository loadVersionFromFileNamed: packageName ].
 
 versions do: [ :version |
@@ -19,7 +19,7 @@ all := 'metadataless/VMMaker.oscog.package' asFileReference entries.
 
 toDelete := all select: [ :each | (names includes: each name) not ].
 
-toDelete do: [:entry | entry asFileReference moveTo: ('delete'  asFileReference / entry name)].
+toDelete do: [:entry | entry asFileReference moveTo: ('delete'  asFileReference ensureCreateDirectory / entry name)].
 
 (toDelete collect: #asFileReference) do: [:ref | ref name].
 

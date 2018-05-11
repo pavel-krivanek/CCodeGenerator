@@ -9,6 +9,7 @@ generateToByDo: msgNode on: aStream indent: level
 	iterationVar := blockExpr args first.
 	limitExpr := msgNode args first.
 	aStream nextPutAll: 'for (', iterationVar, ' = '.
+	self noteUsedVariableName: iterationVar.
 	self emitCExpression: msgNode receiver on: aStream.
 	mayHaveSideEffects := msgNode args size = 4. "See TMethod>>prepareMethodIn:"
 	mayHaveSideEffects ifTrue:

@@ -13,12 +13,14 @@ emitCLocalsOn: aStream generator: aCodeGen
 	aStream cr.
 	locals isEmpty ifFalse:
 		[(aCodeGen sortStrings: locals) do:
-			[ :var |
-			aStream next: 4 put: Character space.
-			volatileVariables ifTrue:
-				[aStream nextPutAll: #volatile; space].
-			aStream
-				nextPutAll: (self declarationAt: var);
-				nextPut: $;;
-				cr].
+			[ :var | | decl |
+			decl := self declarationAt: var.
+			(volatileVariables or: [(decl beginsWith: 'static') or: [usedVariablesCache includes: var]]) ifTrue:
+				[aStream next: 4 put: Character space.
+				 volatileVariables ifTrue:
+					[aStream nextPutAll: #volatile; space].
+				 aStream
+					nextPutAll: decl;
+					nextPut: $;;
+					cr]].
 		 aStream cr]

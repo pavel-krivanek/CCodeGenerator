@@ -28,7 +28,8 @@
 		"sharedLabel",
 		"static",
 		"writtenToGlobalVarsCache",
-		"functionAttributes"
+		"functionAttributes",
+		"usedVariablesCache"
 	],
 	"name" : "TMethod",
 	"type" : "normal"

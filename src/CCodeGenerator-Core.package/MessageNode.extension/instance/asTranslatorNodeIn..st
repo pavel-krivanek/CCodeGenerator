@@ -76,6 +76,10 @@ asTranslatorNodeIn: aTMethod
 									receiver: (receiver receiver variable asTranslatorNodeIn: aTMethod)
 									arguments: {receiver arguments first asTranslatorNodeIn: aTMethod})
 						arguments: args }].
+	((CCodeGenerator isVarargsSelector: sel)
+	 and: [args last isCollection
+	 and: [args last isSequenceable]]) ifTrue:
+		[args := args allButLast, args last].
 	^TSendNode new
 		setSelector: sel
 		receiver: rcvrOrNil

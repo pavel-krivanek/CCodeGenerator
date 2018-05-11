@@ -4,3 +4,4 @@ SystemOrganization addCategory: #'CCodeGenerator-Core-Nodes'!
 SystemOrganization addCategory: #'CCodeGenerator-Core-Support'!
 SystemOrganization addCategory: #'CCodeGenerator-Core-Tests'!
 SystemOrganization addCategory: #'CCodeGenerator-Core-Translation to C'!
+

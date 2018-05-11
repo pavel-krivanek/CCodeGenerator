@@ -1,9 +1,9 @@
 printing
 printOptionalLabelOn: aStream
 
-	label ~= nil ifTrue: [
-		self unindentOneTab: aStream.
-		aStream nextPutAll: label.
-		aStream nextPut: $:.
-		aStream tab.	
-	].
+	label ifNotNil:
+		[self unindentTabs: aStream.
+		 aStream
+			nextPutAll: label;
+			nextPut: $:;
+			tab]
