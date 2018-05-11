@@ -30,4 +30,5 @@ initializePrimitiveErrorCodes
 	PrimErrWritePastObject		:= pet indexOf: #'primitive write beyond end of object' ifAbsent: 17.
 	PrimErrObjectMoved		:= pet indexOf: #'object moved' ifAbsent: 18.
 	PrimErrObjectNotPinned	:= pet indexOf: #'object not pinned' ifAbsent: 19.
-	PrimErrCallbackError		:= pet indexOf: #'error in callback' ifAbsent: 20
+	PrimErrCallbackError		:= pet indexOf: #'error in callback' ifAbsent: 20.
+	PrimErrOSError				:= pet indexOf: #'operating system error' ifAbsent: 21

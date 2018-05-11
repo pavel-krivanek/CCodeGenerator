@@ -8,6 +8,8 @@ openCogitMultiWindowBrowser
 	CogObjectRepresentation withAllSubclasses,
 	{CogMethodZone. CogRTLOpcodes },
 	(CogAbstractInstruction withAllSubclasses reject: [:c| c name endsWith: 'Tests']),
+	CogBytecodeFixup withAllSubclasses,
+	CogSimStackEntry withAllSubclasses,
 	{VMStructType. VMMaker. CCodeGenerator. TMethod}
 		do: [:class|
 			b selectCategoryForClass: class; selectClass: class]

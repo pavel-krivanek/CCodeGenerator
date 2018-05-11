@@ -28,8 +28,6 @@ initializeMiscConstants
 	SistaVM := initializationOptions at: #SistaVM ifAbsentPut: [false].
 	LowcodeVM := initializationOptions at: #LowcodeVM ifAbsentPut: [false].
 	MULTIPLEBYTECODESETS := initializationOptions at: #MULTIPLEBYTECODESETS ifAbsentPut: [false].
-	"But not these; they're compile-time"
-	IMMUTABILITY := initializationOptions at: #IMMUTABILITY ifAbsent: [false].
 
 	"These must be set only if specified, not defaulted, because they are set on the command line or in include files."
 	initializationOptions
@@ -37,4 +35,7 @@ initializeMiscConstants
 		at: #ObjectMemory	ifPresent: [:value| SPURVM := value beginsWith: 'Spur'];
 		at: #STACKVM		ifPresent: [:value| STACKVM := value];
 		at: #COGVM		ifPresent: [:value| COGVM := initializationOptions at: #COGVM];
-		at: #COGMTVM		ifPresent: [:value| COGMTVM := initializationOptions at: #COGMTVM]
+		at: #COGMTVM		ifPresent: [:value| COGMTVM := initializationOptions at: #COGMTVM].
+
+	"And not these; they're compile-time"
+	IMMUTABILITY := initializationOptions at: #IMMUTABILITY ifAbsent: [SPURVM] "Default as enabled for Spur VMs"

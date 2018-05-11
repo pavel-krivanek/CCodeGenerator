@@ -14,6 +14,7 @@ generateValue: aTSendNode on: aStream indent: level
 			ifTrue: [substitutionDict at: argName put: exprNode]
 			ifFalse:
 				[aStream nextPutAll: argName; nextPutAll: ' = '.
+				 self noteUsedVariableName: argName.
 				 exprNode emitCCodeAsExpressionOn: aStream level: level generator: self.
 				 aStream nextPut: $; ; crtab: level]].
 	substitution
