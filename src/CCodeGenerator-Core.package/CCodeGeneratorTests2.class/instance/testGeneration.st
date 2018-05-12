@@ -11,8 +11,10 @@ cg addClass: CCGExample.
 CCGExample exportHeaders.
 cg storeCodeOnFile: 'generated.c' doInlining: false.  
 
-LibC uniqueInstance system: 'gcc -c -m32 generated.c'.
-LibC uniqueInstance system: 'gcc -shared -m32 -o generated.dll generated.o'.
+LibC uniqueInstance system: 'gcc -c -fPIC generated.c'.
+LibC uniqueInstance system: 'gcc -shared -o generated.dll generated.o'.
+
+Smalltalk vm unloadModule: 'generated.dll'.
 
 self assert: ((CCGExampleLib uniqueInstance fib4: 30) =  90799453).
 self assert: ((CCGExampleLib uniqueInstance factorial: 5) =  120).
