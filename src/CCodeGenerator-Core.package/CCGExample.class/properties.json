@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"testFailures"
+	],
 	"name" : "CCGExample",
 	"type" : "normal"
 }

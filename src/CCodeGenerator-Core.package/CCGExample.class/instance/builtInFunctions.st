@@ -5,9 +5,12 @@ builtInFunctions
 	<returnTypeC: #'sqInt'>
 	<ignoreForCoverage>	
 	
+	testFailures := 0.
+	
 	self builtInFunctionsLogical.
 	self builtInFunctionsNumerical.
 	self builtInFunctionsBinary.
+	self builtInControlStructures.
 	
-	^ 1
+	^ testFailures
 		
