@@ -27,6 +27,13 @@ builtInControlStructures
 	self assertTrue: ( result = 42 ).
 	(var > 6) ifTrue: [ var := 10 ] ifFalse: [ var := 41 ]. 	
 	self assertTrue: ( var = 41 ).
+
+	"ifFalse:ifTrue"
+	var := 5.
+	result := ((var < 6) ifFalse: [ 42 ] ifTrue: [41]). 	
+	self assertTrue: ( result = 41 ).
+	(var > 6) ifFalse: [ var := 10 ] ifTrue: [ var := 41 ]. 	
+	self assertTrue: ( var = 10 ).
 	
 	^ 1
 
