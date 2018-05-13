@@ -46,6 +46,14 @@ builtInLoops
 	var := 5.
 	[ var := var - 1. var = 0 ] whileFalse.
 	self assertTrue: ( var = 0 ).
+	
+	"repeat"
+	
+	var := 5. "constant, the code will be copied 5-times It cannot be a variable!"
+	5 timesRepeat: [ var := var - 1 ].
+	self assertTrue: ( var = 0 ).
+
+
 
 	^ 1
 

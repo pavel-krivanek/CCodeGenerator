@@ -5,12 +5,12 @@ doesNotWork
 	<returnTypeC: #'sqInt'>
 	<ignoreForCoverage>	
 
-	| flag alternativeBlock |
+	| flag alternativeBlock var |
 
 	alternativeBlock := [ flag := true ].
 	
-	self deny: (false and: [ flag := true ]).
-	self deny: (flag).
+	self denyTrue: (false and: [ flag := true ]).
+	self denyTrue: (flag).
 	
 	^ 0
 
