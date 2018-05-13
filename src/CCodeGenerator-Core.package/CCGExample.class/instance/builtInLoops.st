@@ -53,7 +53,7 @@ builtInLoops
 	5 timesRepeat: [ var := var - 1 ].
 	self assertTrue: ( var = 0 ).
 
-
+	self assertTrue: (self repeatTest = 1).
 
 	^ 1
 
