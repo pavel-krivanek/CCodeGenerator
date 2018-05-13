@@ -12,6 +12,7 @@ builtInFunctions
 	self builtInFunctionsBinary.
 	self builtInConditionalControlStructures.
 	self builtInLoops.
+	self builtInStringAccess.
 	
 	^ testFailures
 		
