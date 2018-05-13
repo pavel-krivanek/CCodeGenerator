@@ -1,5 +1,5 @@
 as yet unclassified
-builtInWhileLoops
+builtInLoops
 
 	<ignoreForCoverage>	
 	<returnTypeC: #'sqInt'>

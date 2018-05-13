@@ -11,7 +11,7 @@ builtInFunctions
 	self builtInFunctionsNumerical.
 	self builtInFunctionsBinary.
 	self builtInConditionalControlStructures.
-	self builtInWhileLoops.
+	self builtInLoops.
 	
 	^ testFailures
 		

@@ -6,31 +6,31 @@ builtInFunctionsLogical
 		
 	| flag var |
 	
-	self assert: [ (true & true) = true ].
-	self assert: [ (true & false) = false ].
-	self assert: [ (false & true) = false ].
-	self assert: [ (false & false) = false ].
+	self assertTrue: ((true & true) = true).
+	self assertTrue: ((true & false) = false).
+	self assertTrue: ((false & true) = false).
+	self assertTrue: ((false & false) = false).
 	
-	self assert: [ (true | true) = true ].
-	self assert: [ (true | false) = true ].
-	self assert: [ (false | true) = true ].
-	self assert: [ (false | false) = false ].
+	self assertTrue: ((true | true) = true).
+	self assertTrue: ((true | false) = true).
+	self assertTrue: ((false | true) = true).
+	self assertTrue: ((false | false) = false).
 	
 	flag := false.
 	var := true.
 	var := var not.
-	self deny: (var and: [ flag := true ]).
-	self deny: (flag).
+	self denyTrue: (var and: [flag := true]).
+	self denyTrue: (flag).
 
 	flag := false.
 	var := true.
 	var := var not.
-	self assert: (var or: [ flag := true ]).
-	self assert: (flag).
+	self assertTrue: (var or: [flag := true]).
+	self assertTrue: (flag).
 
 	var := true.
 	var := var not.
-	self assert: (var = false).
+	self assertTrue: (var = false).
 
 	^ 1
 	
