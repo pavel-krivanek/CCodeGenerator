@@ -55,6 +55,20 @@ builtInLoops
 
 	self assertTrue: (self repeatTest = 1).
 
+	"to:do:"
+	
+	var := 0.
+	1 to: 10 do: [ :i | var := var + i ]. 
+	self assertTrue: (var = 55).
+
+	"to:by:do:"
+
+	var := 0.
+	1 to: 10 by: 2 do: [ :i | var := var + i ]. 
+	self assertTrue: (var = 25).
+
+
+
 	^ 1
 
 	
