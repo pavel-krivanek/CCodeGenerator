@@ -75,5 +75,7 @@ extern void warningat(char *,int);
 
 #define EXPORT(returnType) returnType
 
+#define null 0
+
 #endif /* __sq_h */
 ' ]

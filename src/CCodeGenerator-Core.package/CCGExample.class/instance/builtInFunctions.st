@@ -10,7 +10,8 @@ builtInFunctions
 	self builtInFunctionsLogical.
 	self builtInFunctionsNumerical.
 	self builtInFunctionsBinary.
-	self builtInControlStructures.
+	self builtInConditionalControlStructures.
+	self builtInWhileLoops.
 	
 	^ testFailures
 		

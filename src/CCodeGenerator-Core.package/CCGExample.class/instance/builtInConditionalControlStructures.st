@@ -1,5 +1,5 @@
 as yet unclassified
-builtInControlStructures
+builtInConditionalControlStructures
 
 	<ignoreForCoverage>	
 	<returnTypeC: #'sqInt'>
