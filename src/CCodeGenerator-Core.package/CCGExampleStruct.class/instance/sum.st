@@ -1,4 +1,4 @@
 accessing
 sum
 
-	^ x + y + z
+	^ self x + self y + self z

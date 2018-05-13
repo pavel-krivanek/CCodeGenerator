@@ -7,11 +7,13 @@ testGeneration
 
 	cg := CCodeGenerator new initialize.
 	cg vmClass: CCGExample.
+
 	cg addClass: CCGExample.
-	cg addClass: CCGExampleStruct.
 	CCGExample exportHeaders.
 
-	cg addStructClasses: {CCGExampleStruct}.
+	cg addClass: CCGExampleStruct.
+	cg addClass: CCGExampleStructCopy.
+	cg addStructClasses: {CCGExampleStruct. CCGExampleStructCopy  }.
 
 	cg storeCodeOnFile: 'generated.c' doInlining: false.  
 
@@ -22,6 +24,6 @@ testGeneration
 
 	self assert: ((CCGExampleLib uniqueInstance fib4: 30) =  90799453).
 	self assert: ((CCGExampleLib uniqueInstance factorial: 5) =  120).
-	self assert: (CCGExampleLib uniqueInstance builtInFunctions = 0).
+	self assert: (CCGExampleLib uniqueInstance tests = 0).
 
 

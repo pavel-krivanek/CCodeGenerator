@@ -2,10 +2,8 @@ as yet unclassified
 builtInFunctions
 
 	<export: true>
-	<returnTypeC: #'sqInt'>
+	<returnTypeC: #'void'>
 	<ignoreForCoverage>	
-	
-	testFailures := 0.
 	
 	self builtInFunctionsLogical.
 	self builtInFunctionsNumerical.
@@ -16,7 +14,4 @@ builtInFunctions
 	self builtInCorece.
 	self builtInAddressAccess.
 	
-	aStructure sum.
-	
-	^ testFailures
 		

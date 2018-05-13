@@ -3,5 +3,6 @@ declareCVarsIn: aCCodeGenerator
 
 	super declareCVarsIn: aCCodeGenerator.
 
-	aCCodeGenerator var: 'aStructure'
-			type: #CCGExampleStruct
+	aCCodeGenerator 
+			var: 'aStructure' type: #CCGExampleStruct;
+			var: 'aStructureCopy' type: #CCGExampleStructCopy
