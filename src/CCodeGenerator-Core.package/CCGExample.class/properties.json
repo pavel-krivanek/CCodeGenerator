@@ -7,8 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"testFailures",
-		"aStructureCopy",
-		"aStructure"
+		"aStructure",
+		"aStructureCopy"
 	],
 	"name" : "CCGExample",
 	"type" : "normal"

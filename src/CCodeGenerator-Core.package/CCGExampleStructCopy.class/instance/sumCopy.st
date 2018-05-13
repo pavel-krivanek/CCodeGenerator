@@ -1,4 +1,6 @@
 accessing
 sumCopy
 
-	^ self a + self b + self c
+	"the method names for structures (except simple accessor) must be uique"
+
+	^ self x + self y + self z

@@ -3,9 +3,9 @@ testStructures
 
 	<returnTypeC: #'void'>
 	
-	aStructureCopy a: 2.
-	aStructureCopy b: 4.
-	aStructureCopy c: 6.
+	aStructureCopy x: 2.
+	aStructureCopy y: 4.
+	aStructureCopy z: 6.
 
 	aStructure x: 1.
 	aStructure y: 2.

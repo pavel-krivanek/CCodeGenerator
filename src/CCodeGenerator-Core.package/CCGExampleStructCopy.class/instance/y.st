@@ -1,3 +1,3 @@
 accessing
-b
-	^ b
+y
+	^ y

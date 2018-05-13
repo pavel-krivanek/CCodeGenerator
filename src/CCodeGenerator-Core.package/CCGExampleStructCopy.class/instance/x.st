@@ -1,3 +1,3 @@
 accessing
-a
-	^ a
+x
+	^ x

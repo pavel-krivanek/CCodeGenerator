@@ -6,9 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"a",
-		"b",
-		"c"
+		"x",
+		"y",
+		"z"
 	],
 	"name" : "CCGExampleStructCopy",
 	"type" : "normal"
