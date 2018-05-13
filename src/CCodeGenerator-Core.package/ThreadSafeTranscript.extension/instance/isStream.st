@@ -1,0 +1,4 @@
+*CCodeGenerator-Core
+isStream
+	
+	^ true

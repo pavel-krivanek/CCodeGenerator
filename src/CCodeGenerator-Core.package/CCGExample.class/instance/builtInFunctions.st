@@ -13,6 +13,10 @@ builtInFunctions
 	self builtInConditionalControlStructures.
 	self builtInLoops.
 	self builtInStringAccess.
+	self builtInCorece.
+	self builtInAddressAccess.
+	
+	aStructure sum.
 	
 	^ testFailures
 		

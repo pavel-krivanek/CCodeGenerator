@@ -1,14 +1,15 @@
 {
-	"commentStamp" : "PavelKrivanek 9/15/2017 21:18",
-	"super" : "VMClass",
+	"commentStamp" : "",
+	"super" : "VMStructType",
 	"category" : "CCodeGenerator-Core-Examples",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"testFailures",
-		"aStructure"
+		"x",
+		"y",
+		"z"
 	],
-	"name" : "CCGExample",
+	"name" : "CCGExampleStruct",
 	"type" : "normal"
 }

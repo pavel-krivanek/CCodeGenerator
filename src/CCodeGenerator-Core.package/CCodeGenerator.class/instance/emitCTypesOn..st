@@ -1,6 +1,7 @@
 C code generator
 emitCTypesOn: aStream 
 	"Store local type declarations on the given stream."
+
 	structClasses ifNotNil:
 		[structClasses do:
 			[:structClass|

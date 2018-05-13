@@ -13,7 +13,7 @@ addMethod: aTMethod
 		 and: [aTMethod isStructAccessor
 		 and: [conflict compiledMethod decompileString = aTMethod compiledMethod decompileString]]) ifTrue:
 			[^nil].
-		((aTMethod definingClass inheritsFrom: conflict definingClass)
+		"((aTMethod definingClass inheritsFrom: conflict definingClass)
 		 or: [(aTMethod compiledMethod pragmaAt: #option:) notNil]) ifFalse:
-			[self error: 'Method name conflict: ', aTMethod selector]].
+			[self error: 'Method name conflict: ', aTMethod selector]"].
 	^methods at: aTMethod selector put: aTMethod
