@@ -4,7 +4,5 @@ sudo: false
 os:
   - linux
 
-install: make
-
 smalltalk:
   - Pharo-7.0
