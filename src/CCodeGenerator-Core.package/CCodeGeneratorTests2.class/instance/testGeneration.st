@@ -1,7 +1,11 @@
 tests
 testGeneration
 
-	| cg |
+	| cg architecture |
+
+	architecture := Smalltalk vm is64bit 
+		ifTrue: [ '-m64' ]
+		ifFalse: [ '-m32' ].
 
 	CCGExampleLib reset.
 
@@ -17,8 +21,8 @@ testGeneration
 
 	cg storeCodeOnFile: 'generated.c' doInlining: false.  
 
-	self assert: (LibC uniqueInstance system: 'gcc -c -fPIC generated.c') isZero.
-	self assert: (LibC uniqueInstance system: 'gcc -shared -o generated.dll generated.o') isZero.
+	self assert: (LibC uniqueInstance system: ('gcc -c {1} -fPIC generated.c' format: { architecture })) isZero.
+	self assert: (LibC uniqueInstance system: ('gcc -shared {1} -o generated.dll generated.o' format: { architecture })) isZero.
 
 	Smalltalk vm unloadModule: 'generated.dll'.
 
