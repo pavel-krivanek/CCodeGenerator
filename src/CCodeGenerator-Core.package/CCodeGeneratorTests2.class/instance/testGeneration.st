@@ -1,20 +1,29 @@
 tests
 testGeneration
 
-| cg |
+	| cg |
 
-CCGExampleLib reset.
+	CCGExampleLib reset.
 
-cg := CCodeGenerator new initialize.
-cg vmClass: CCGExample.
-cg addClass: CCGExample.
-CCGExample exportHeaders.
-cg storeCodeOnFile: 'generated.c' doInlining: false.  
+	cg := CCodeGenerator new initialize.
+	cg vmClass: CCGExample.
 
-LibC uniqueInstance system: 'gcc -c -m32 generated.c'.
-LibC uniqueInstance system: 'gcc -shared -m32 -o generated.dll generated.o'.
+	cg addClass: CCGExample.
+	CCGExample exportHeaders.
 
-self assert: ((CCGExampleLib uniqueInstance fib4: 30) =  90799453).
-self assert: ((CCGExampleLib uniqueInstance factorial: 5) =  120).
+	cg addClass: CCGExampleStruct.
+	cg addClass: CCGExampleStructCopy.
+	cg addStructClasses: {CCGExampleStruct. CCGExampleStructCopy  }.
+
+	cg storeCodeOnFile: 'generated.c' doInlining: false.  
+
+	self assert: (LibC uniqueInstance system: 'gcc -c -fPIC generated.c') isZero.
+	self assert: (LibC uniqueInstance system: 'gcc -shared -o generated.dll generated.o') isZero.
+
+	Smalltalk vm unloadModule: 'generated.dll'.
+
+	self assert: ((CCGExampleLib uniqueInstance fib4: 30) =  90799453).
+	self assert: ((CCGExampleLib uniqueInstance factorial: 5) =  120).
+	self assert: (CCGExampleLib uniqueInstance tests = 0).
 
 

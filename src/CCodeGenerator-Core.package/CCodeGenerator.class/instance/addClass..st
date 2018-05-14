@@ -14,8 +14,7 @@ addClass: aClass
 	self retainMethods: (aClass requiredMethodNames: self options).
 	
 	'Adding Class ' , aClass name , '...'
-		displayProgressAt: Sensor cursorPoint
-		from: 0
+		displayProgressFrom: 0
 		to: aClass selectors size
 		during: [:bar |
 			 aClass selectors doWithIndex: [:sel :i | 

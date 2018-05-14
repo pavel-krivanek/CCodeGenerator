@@ -22,4 +22,6 @@ initialize
 	previousCommentMarksInlining := false.
 	previousCommenter := nil.
 	breakSrcInlineSelectors := IdentitySet new.
-	breakDestInlineSelectors := IdentitySet new
+	breakDestInlineSelectors := IdentitySet new.
+	
+	VMStructType voidStructTypeCache.

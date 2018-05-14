@@ -5,7 +5,11 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"testFailures",
+		"aStructure",
+		"aStructureCopy"
+	],
 	"name" : "CCGExample",
 	"type" : "normal"
 }
