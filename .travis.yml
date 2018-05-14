@@ -4,7 +4,7 @@ sudo: false
 os:
   - linux
 
-install: make get-deps
+install: make
 
 smalltalk:
   - Pharo-7.0
