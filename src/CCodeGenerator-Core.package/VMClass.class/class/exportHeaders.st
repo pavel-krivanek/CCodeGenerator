@@ -108,5 +108,24 @@ extern void warningat(char *,int);
 #  define SQ_SWAP_8_BYTES_IF_BIGENDIAN(x) (x)
 #endif
 
+/* sqLong is a signed integer with at least 64bits on both 32 and 64 bits images
+   usqLong is the unsigned flavour
+   SQLABS is a macro for taking absolute value of a sqLong */
+#if !defined(sqLong)
+#  if SIZEOF_LONG == 8
+#     define sqLong long
+#     define usqLong unsigned long
+#     define SQLABS labs
+#  elif _MSC_VER
+#     define sqLong __int64
+#     define usqLong unsigned __int64
+#     define SQLABS llabs
+#  else
+#     define sqLong long long
+#     define usqLong unsigned long long
+#     define SQLABS llabs
+#  endif
+#endif /* !defined(sqLong) */
+
 #endif /* __sq_h */
 ' ]

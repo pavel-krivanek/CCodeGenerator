@@ -3,7 +3,7 @@ builtInFunctionsNumerical
 
 	<ignoreForCoverage>	
 	<returnTypeC: #'sqInt'>
-				
+					
 	self assertTrue: (-42 abs = 42).
 	self assertTrue: (42 abs = 42).
 
@@ -54,6 +54,13 @@ builtInFunctionsNumerical
 	self assertTrue: (42.7 asUnsignedInteger = 42).
 
 	self assertTrue: (42 asLong = 42).
+	
+	self assertTrue: (42 signedIntFromLong64 = 42).
+	self assertTrue: (42 signedIntFromLong = 42).
+	self assertTrue: (42 signedIntFromShort = 42).
+	self assertTrue: (42 signedIntToLong64 = 42).
+	self assertTrue: (42 signedIntToLong = 42).
+	self assertTrue: (42 signedIntToShort = 42).
 
 
 

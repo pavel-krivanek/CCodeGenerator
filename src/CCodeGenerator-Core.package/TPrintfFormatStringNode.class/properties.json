@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TConstantNode",
+	"category" : "CCodeGenerator-Core-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TPrintfFormatStringNode",
+	"type" : "normal"
+}
