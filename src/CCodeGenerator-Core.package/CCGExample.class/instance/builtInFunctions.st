@@ -14,5 +14,6 @@ builtInFunctions
 	self builtInStringAccess.
 	self builtInCorece.
 	self builtInAddressAccess.
-	
+	self builtInFunctionsValueVariants.
+	self builtInFunctionsMisc.
 		

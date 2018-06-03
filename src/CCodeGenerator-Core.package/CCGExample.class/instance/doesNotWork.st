@@ -26,7 +26,11 @@ doesNotWork
 	
 	"self assertTrue: (66 anyMask: 127). " "- wrong boolean interpretation"
 
+	"var := 1.
+	block := [ var := var + 1 ].
+	self assertTrue: (var = 2).    - block is always evaluated"
 	
+	"block value: can be executed only for inline functions, probably"
 	^ 0
 
 	
