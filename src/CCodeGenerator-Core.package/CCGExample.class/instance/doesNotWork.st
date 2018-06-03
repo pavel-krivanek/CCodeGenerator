@@ -20,6 +20,9 @@ doesNotWork
 "	{ 1. 2. 3 } at: 2."
 	"array := #[1 2 3]."
 	
+	"self assertTrue: ((1 / 2) = 0.5)."
+	"(3.1479 truncateTo: 0.01) = 3.14"
+	
 	^ 0
 
 	

@@ -56,6 +56,12 @@ typedef unsigned long long  usqInt;
 # define SQABS llabs
 #endif
 
+#if defined(__BIG_ENDIAN__)
+# define VMBIGENDIAN 1
+#else
+# define VMBIGENDIAN 0
+#endif
+
 # define __stringify(foo) #foo
 # define __stringifyNum(n) __stringify(n)
 
@@ -76,6 +82,31 @@ extern void warningat(char *,int);
 #define EXPORT(returnType) returnType
 
 #define null 0
+
+#define SQ_SWAP_4_BYTES(x) \
+	(((unsigned int)(x) << 24) | \
+	(((unsigned int)(x) <<  8) & 0xff0000U) | \
+	(((unsigned int)(x) >>  8) & 0xff00U) | \
+	( (unsigned int)(x) >> 24))
+#define SQ_SWAP_8_BYTES(x) \
+	(((unsigned long long)(x) << 56) | \
+	(((unsigned long long)(x) << 40) & 0xff000000000000ULL) | \
+	(((unsigned long long)(x) << 24) & 0xff0000000000ULL) | \
+	(((unsigned long long)(x) << 8)  & 0xff00000000ULL) | \
+	(((unsigned long long)(x) >> 8)  & 0xff000000ULL) | \
+	(((unsigned long long)(x) >> 24) & 0xff0000ULL) | \
+	(((unsigned long long)(x) >> 40) & 0xff00ULL) | \
+	( (unsigned long long)(x) >> 56))
+	
+/* Since Large Integers are Bytes Oops allways stored as little endian,
+   the following macros are handy to retrieve 4 or 8 byte limbs */
+#if VMBIGENDIAN
+#  define SQ_SWAP_4_BYTES_IF_BIGENDIAN(x) SQ_SWAP_4_BYTES(x)
+#  define SQ_SWAP_8_BYTES_IF_BIGENDIAN(x) SQ_SWAP_8_BYTES(x)
+#else
+#  define SQ_SWAP_4_BYTES_IF_BIGENDIAN(x) (x)
+#  define SQ_SWAP_8_BYTES_IF_BIGENDIAN(x) (x)
+#endif
 
 #endif /* __sq_h */
 ' ]
