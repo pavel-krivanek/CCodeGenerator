@@ -37,6 +37,25 @@ builtInFunctionsNumerical
 
 	self assertTrue: ((127 byteSwap32) = 2130706432).
 	self assertTrue: ((127 byteSwap64) = 9151314442816847872).
+	
+	self assertTrue: ((31 allMask: 16) > 0).
+	self denyTrue: (65 allMask: 127).
+	
+	"self assertTrue: (66 anyMask: 127)."
+	self denyTrue: (4 anyMask: 2).
+
+	self denyTrue: (65 noMask: 127).
+	self assertTrue: (4 noMask: 2).
+
+	self assertTrue: (42 asInteger = 42).
+	self assertTrue: (42.7 asInteger = 42).
+
+	self assertTrue: (42 asUnsignedInteger = 42).
+	self assertTrue: (42.7 asUnsignedInteger = 42).
+
+	self assertTrue: (42 asLong = 42).
+
+
 
 	^ 1
 

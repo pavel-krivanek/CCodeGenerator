@@ -1,0 +1,3 @@
+*CCodeGenerator-Core
+asUnsignedInteger
+	^self

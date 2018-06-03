@@ -7,6 +7,7 @@ builtInFunctions
 	
 	self builtInFunctionsLogical.
 	self builtInFunctionsNumerical.
+	self builtInFunctionsComparisons.
 	self builtInFunctionsBinary.
 	self builtInConditionalControlStructures.
 	self builtInLoops.

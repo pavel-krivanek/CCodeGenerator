@@ -13,13 +13,13 @@ builtInFunctionsComparisons
 	self assertTrue: (2 >= 2).
 	self assertTrue: (2 ~= 1).
 	self assertTrue: (2 == 2).
-	self assertTrue: (2 ~~ 2).
+	self denyTrue: (2 ~~ 2).
 
 	self denyTrue: (1 isNil).
 	self assertTrue: (nil isNil).
 
 	self assertTrue: (1 notNil).
-	self denyTrue: (nil isNil).
+	self assertTrue: (nil isNil).
 
 	^ 1
 

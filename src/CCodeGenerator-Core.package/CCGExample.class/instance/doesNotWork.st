@@ -22,6 +22,10 @@ doesNotWork
 	
 	"self assertTrue: ((1 / 2) = 0.5)."
 	"(3.1479 truncateTo: 0.01) = 3.14"
+	"byteSwapped32IfBigEndian:"
+	
+	"self assertTrue: (66 anyMask: 127). " "- wrong boolean interpretation"
+
 	
 	^ 0
 
