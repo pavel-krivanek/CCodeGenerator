@@ -61,6 +61,11 @@ builtInLoops
 	1 to: 10 do: [ :i | var := var + i ]. 
 	self assertTrue: (var = 55).
 
+	var := 5.
+	counter := var + var.
+	1 to: counter do: [ :i | var := var + i ]. 
+	self assertTrue: (var = 60).
+
 	"to:by:do:"
 
 	var := 0.

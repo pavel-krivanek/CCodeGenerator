@@ -31,6 +31,12 @@ doesNotWork
 	self assertTrue: (var = 2).    - block is always evaluated"
 	
 	"block value: can be executed only for inline functions, probably"
+	
+	"	var := 5.
+	1 to: (var + var + 10) do: [ :i | var := var + i ].   -- code in #to: section is evaluated everytime
+	self assertTrue: (var = 60).
+"
+	
 	^ 0
 
 	
