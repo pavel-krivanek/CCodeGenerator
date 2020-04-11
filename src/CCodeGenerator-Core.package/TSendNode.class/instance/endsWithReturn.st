@@ -1,3 +1,0 @@
-testing
-endsWithReturn
-	^self isReturningIf

@@ -1,2 +1,0 @@
-This class oversees the translation of a subset of Smalltalk to C, allowing the comforts of Smalltalk during development and the efficiency and portability of C for the resulting interpreter.  
-See VMMaker for more useful info

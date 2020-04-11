@@ -1,3 +1,0 @@
-accessing
-clearReferencesToGlobalStruct
-	globalStructureBuildMethodHasFoo := false

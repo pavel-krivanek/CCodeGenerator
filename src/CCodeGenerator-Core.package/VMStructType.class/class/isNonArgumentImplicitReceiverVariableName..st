@@ -1,3 +1,0 @@
-translation
-isNonArgumentImplicitReceiverVariableName: aString
-	^Cogit isNonArgumentImplicitReceiverVariableName: aString

@@ -1,3 +1,0 @@
-transformations
-asReturnNode
-	^self

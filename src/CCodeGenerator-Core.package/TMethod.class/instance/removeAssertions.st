@@ -1,3 +1,0 @@
-transformations
-removeAssertions
-	parseTree removeAssertions

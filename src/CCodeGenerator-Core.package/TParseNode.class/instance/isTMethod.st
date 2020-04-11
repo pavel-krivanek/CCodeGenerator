@@ -1,3 +1,0 @@
-testing
-isTMethod
-	^false

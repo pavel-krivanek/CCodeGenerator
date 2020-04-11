@@ -1,3 +1,0 @@
-accessing
-memoryManagerVersion 
-	^ self subclassResponsibility

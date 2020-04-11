@@ -1,3 +1,0 @@
-accessing
-referencesGlobalStruct
-	globalStructureBuildMethodHasFoo := true

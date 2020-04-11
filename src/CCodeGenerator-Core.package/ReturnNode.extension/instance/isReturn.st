@@ -1,3 +1,0 @@
-*CCodeGenerator-Core
-isReturn
-	^true

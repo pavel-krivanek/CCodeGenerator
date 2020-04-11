@@ -1,3 +1,0 @@
-testing
-isSwitch
-	^true
