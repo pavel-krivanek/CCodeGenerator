@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "<historical>",
 	"super" : "TParseNode",
-	"category" : "VMMaker-Translation to C",
+	"category" : "CCodeGenerator-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

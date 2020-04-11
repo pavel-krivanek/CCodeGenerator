@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "<historical>",
 	"super" : "Object",
-	"category" : "VMMaker-Support",
+	"category" : "CCodeGenerator-Core",
 	"classinstvars" : [
 		"timeStamp",
 		"initializationOptions"

@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "tpr 5/2/2003 14:30",
 	"super" : "Object",
-	"category" : "VMMaker-Translation to C",
+	"category" : "CCodeGenerator-Core",
 	"classinstvars" : [ ],
 	"pools" : [
 		"VMBasicConstants"

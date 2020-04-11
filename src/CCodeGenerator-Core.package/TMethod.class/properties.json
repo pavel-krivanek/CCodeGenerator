@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "dtl 9/15/2008 09:06",
 	"super" : "Object",
-	"category" : "VMMaker-Translation to C",
+	"category" : "CCodeGenerator-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [
