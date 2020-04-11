@@ -1,3 +1,0 @@
-*CCodeGenerator-Core
-closed 
-	^ false

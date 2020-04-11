@@ -1,4 +1,0 @@
-accessing
-args
-
-	^arguments

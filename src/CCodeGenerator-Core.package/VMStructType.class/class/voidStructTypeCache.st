@@ -1,3 +1,0 @@
-translation
-voidStructTypeCache
-	StructTypeNameCache := nil

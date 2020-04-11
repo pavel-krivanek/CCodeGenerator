@@ -1,3 +1,0 @@
-accessing
-variableNameOrNil
-	^variable variableNameOrNil

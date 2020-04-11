@@ -1,3 +1,0 @@
-inlining
-shouldExpand
-	^method extractExpandCaseDirective
