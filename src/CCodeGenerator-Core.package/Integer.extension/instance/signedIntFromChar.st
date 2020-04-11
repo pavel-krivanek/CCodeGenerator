@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 signedIntFromChar
 	"Self is an unsigned 8-bit integer in twos-comp form"
 

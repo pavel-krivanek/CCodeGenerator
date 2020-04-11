@@ -1,4 +1,4 @@
-*VMMaker-printing
+*CCodeGenerator-Core
 hex8
 	"Print the receiver in base 16 with prefixed base, using at least 8 digits.
 	 DO NOT CHANGE THIS!  The Cog VMMaker depends on this.

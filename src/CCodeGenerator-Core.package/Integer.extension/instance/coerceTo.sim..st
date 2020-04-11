@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 coerceTo: cTypeString sim: interpreter
 
 	| unitSize |

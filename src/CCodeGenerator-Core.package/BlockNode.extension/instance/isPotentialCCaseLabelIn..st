@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 isPotentialCCaseLabelIn: aTMethod
 	| stmt |
 	statements size ~= 1 ifTrue: [^false].

@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 asTranslationMethodOfClass: aClass
  
 	^ aClass new

@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 signedIntFromLong
 	"Self is a signed or unsigned 32-bit integer"
 

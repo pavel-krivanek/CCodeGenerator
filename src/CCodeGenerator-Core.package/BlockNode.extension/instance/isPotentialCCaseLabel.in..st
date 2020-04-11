@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 isPotentialCCaseLabel: stmt in: aTMethod
 	(stmt isVariableNode
 	 or: [stmt isLiteralNode

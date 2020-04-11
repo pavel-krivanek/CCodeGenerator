@@ -1,4 +1,4 @@
-*VMMaker-bit manipulation
+*CCodeGenerator-Core
 bitInvert64
 	"Answer the 64-bit complement of the receiver."
 

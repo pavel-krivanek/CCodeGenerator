@@ -1,3 +1,3 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 isReturn
 	^true

@@ -1,3 +1,3 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 asLong
 	^self

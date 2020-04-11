@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 anyReturns: aSequenceOfNodes
 	aSequenceOfNodes do:
 		[:node|

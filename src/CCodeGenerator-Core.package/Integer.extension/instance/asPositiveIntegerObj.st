@@ -1,4 +1,4 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 asPositiveIntegerObj
 	"This is a SmartSyntaxPlugin convenience, invented with little thought for simulation (grrr).
 	  In the VM this is equivalent to

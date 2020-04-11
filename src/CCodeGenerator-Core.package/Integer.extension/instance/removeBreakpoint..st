@@ -1,3 +1,3 @@
-*VMMaker-interpreter simulator
+*CCodeGenerator-Core
 removeBreakpoint: address
 	^nil

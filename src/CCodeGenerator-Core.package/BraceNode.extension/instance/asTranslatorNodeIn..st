@@ -1,4 +1,4 @@
-*VMMaker-C translation
+*CCodeGenerator-Core
 asTranslatorNodeIn: aTMethod
 	"make a CCodeGenerator equivalent of me."
 
